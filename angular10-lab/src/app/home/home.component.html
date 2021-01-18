@@ -1,0 +1,57 @@
+<div class="jumbotron text-center">
+    <h1>Angular 10 Laboratory</h1>
+</div>
+  
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3>Credit Cards Form</h3>
+                    <p class="card-text">
+                        A form to fill and validate credit card values.
+                        <a href="#" (click)="openModal(creditCardsModal)">Learn more</a>
+                    </p>
+                    <a href="#" class="btn btn-primary bg-success">See Component</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3>Challenge 2</h3>
+                    <p class="card-text">
+                        Coming soon...
+                        <a href="#" (click)="openModal(creditCardsModal)">Learn more</a>
+                    </p>
+                    <a href="#" class="btn btn-primary bg-success">See Component</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3>Challenge 3</h3>
+                    <p class="card-text">
+                        Coming soon...
+                        <a href="#" (click)="openModal(creditCardsModal)">Learn more</a>
+                    </p>
+                    <a href="#" class="btn btn-primary bg-success">See Component</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #creditCardsModal>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Credit Cards Form</h4>
+        <button type="button" class="close pull-right" 
+                aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    <div class="modal-body">
+        Coming soon...
+    </div>
+</ng-template>
