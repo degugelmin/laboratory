@@ -1,6 +1,4 @@
-<div class="jumbotron text-center">
-    <h1>Angular 10 Laboratory</h1>
-</div>
+<app-header></app-header>
   
 <div class="container">
     <div class="row">
@@ -12,7 +10,7 @@
                         A form to fill and validate credit card values.
                         <a href="#" (click)="openModal(creditCardsModal)">Learn more</a>
                     </p>
-                    <a href="#" class="btn btn-primary bg-success">See Component</a>
+                    <a [routerLink]="['credit-card-form']" class="btn btn-primary bg-success">See Component</a>
                 </div>
             </div>
         </div>
