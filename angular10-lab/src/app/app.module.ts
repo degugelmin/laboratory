@@ -9,6 +9,8 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { CreditCardComponent } from './credit-card/credit-card.component';
 import { CoreModule } from './core/core.module';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,10 @@ import { CoreModule } from './core/core.module';
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
-    CoreModule
+    CoreModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     Title

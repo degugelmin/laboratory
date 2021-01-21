@@ -5,7 +5,61 @@
         <div class="col"></div>
 
         <div class="col-6">
-            The form will be here
+
+            <form [formGroup]="creditCardForm" (submit)="validateCard()"> 
+                <!-- Credit card dynamic image -->
+
+                <!-- Card owner -->
+                <div class="form-group">
+                    <label for="inputName">Card owner's name</label>
+                    <input 
+                        type="text" 
+                        formControlName="inputName"
+                        class="form-control" 
+                        id="inputName" 
+                        placeholder="Card owner's name">
+                </div>
+
+                <!-- Card number -->
+                <div class="form-group">
+                    <label for="inputCardNumber">Card number</label>
+                    <input 
+                        type="text" 
+                        formControlName="inputCardNumber"
+                        class="form-control" 
+                        id="inputNumber" 
+                        placeholder="XXXX XXXX XXXX XXXX">
+                </div>
+
+                <!-- Card expiration date -->
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputExpirationDate">Expiration date</label>
+                        <input 
+                            formControlName="inputExpirationDate" 
+                            class="form-control" 
+                            type="month" 
+                            id="inputExpirationDate" >
+                    </div>
+
+                    <!-- Card CVV -->
+                    <div class="form-group col-md-6">
+                        <label for="inputCvv">CVV</label>
+                        <input 
+                            formControlName="inputCvv"
+                            type="text" 
+                            class="form-control" 
+                            id="inputCvv" 
+                            placeholder="XXX">
+                    </div>
+                </div>
+
+                <button 
+                    [disabled]="creditCardForm.invalid"
+                    type="submit" 
+                    class="btn btn-success btn-lg">Submit</button>
+                
+            </form>
         </div>
 
         <div class="col"></div>
