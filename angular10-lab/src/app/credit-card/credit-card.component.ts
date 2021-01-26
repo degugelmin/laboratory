@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-credit-card',
@@ -22,6 +22,21 @@ export class CreditCardComponent implements OnInit {
     }
 
     validateCard() {
-        console.log('Hello world');
+        if (this.creditCardForm.valid) {
+            console.log('form ok');
+        } else {
+            this.validateAllFormFields(this.creditCardForm);
+        }
+    }
+
+    validateAllFormFields(formGroup: FormGroup) {         
+        Object.keys(formGroup.controls).forEach(field => {
+            const control = formGroup.get(field);             
+            if (control instanceof FormControl) {
+                control.markAsTouched({ onlySelf: true });
+            } else if (control instanceof FormGroup) {
+                this.validateAllFormFields(control);
+            }
+        });
     }
 }

@@ -11,12 +11,14 @@ import { CreditCardComponent } from './credit-card/credit-card.component';
 import { CoreModule } from './core/core.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MessageComponent } from './shared/components/message/message.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CreditCardComponent
+    CreditCardComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,

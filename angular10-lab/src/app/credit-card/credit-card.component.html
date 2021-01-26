@@ -6,12 +6,14 @@
 
         <div class="col-6">
 
-            <form [formGroup]="creditCardForm" (submit)="validateCard()"> 
+            <form 
+                [formGroup]="creditCardForm" 
+                (submit)="validateCard()"> 
                 <!-- Credit card dynamic image -->
 
                 <!-- Card owner -->
                 <div class="form-group">
-                    <label for="inputName">Card owner's name</label>
+                    <label for="inputName" class="control-label required">Card owner's name</label>
                     <input 
                         type="text" 
                         formControlName="inputName"
@@ -19,10 +21,15 @@
                         id="inputName" 
                         placeholder="Card owner's name">
                 </div>
+                <app-message
+                    *ngIf="creditCardForm.get('inputName').errors?.required && creditCardForm.get('inputName').touched"
+                    text="Card owner's name is required"
+                    styleClass="alert alert-danger">
+                </app-message>
 
                 <!-- Card number -->
                 <div class="form-group">
-                    <label for="inputCardNumber">Card number</label>
+                    <label for="inputCardNumber" class="control-label required">Card number</label>
                     <input 
                         type="text" 
                         formControlName="inputCardNumber"
@@ -30,21 +37,31 @@
                         id="inputNumber" 
                         placeholder="XXXX XXXX XXXX XXXX">
                 </div>
+                <app-message
+                    *ngIf="creditCardForm.get('inputCardNumber').errors?.required && creditCardForm.get('inputCardNumber').touched"
+                    text="Card number is required"
+                    styleClass="alert alert-danger">
+                </app-message>
 
                 <!-- Card expiration date -->
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputExpirationDate">Expiration date</label>
+                        <label for="inputExpirationDate" class="control-label required">Expiration date</label>
                         <input 
                             formControlName="inputExpirationDate" 
                             class="form-control" 
                             type="month" 
                             id="inputExpirationDate" >
                     </div>
+                    <app-message
+                        *ngIf="creditCardForm.get('inputExpirationDate').errors?.required && creditCardForm.get('inputExpirationDate').touched"
+                        text="Expiration date is required"
+                        styleClass="alert alert-danger">
+                    </app-message>
 
                     <!-- Card CVV -->
                     <div class="form-group col-md-6">
-                        <label for="inputCvv">CVV</label>
+                        <label for="inputCvv" class="control-label required">CVV</label>
                         <input 
                             formControlName="inputCvv"
                             type="text" 
@@ -52,15 +69,26 @@
                             id="inputCvv" 
                             placeholder="XXX">
                     </div>
+                    <app-message
+                        *ngIf="creditCardForm.get('inputCvv').errors?.required && creditCardForm.get('inputCvv').touched"
+                        text="CVV is required"
+                        styleClass="alert alert-danger">
+                    </app-message>
                 </div>
 
-                <button 
-                    [disabled]="creditCardForm.invalid"
+                <button  
                     type="submit" 
                     class="btn btn-success btn-lg">Submit</button>
                 
             </form>
         </div>
+
+        <!--
+                                <ap-vmessage
+                        *ngIf="creditCardForm.get('inputName').errors?.required"
+                        text="Card owner's name is required">
+                    </ap-vmessage>
+        -->
 
         <div class="col"></div>
     </div>
