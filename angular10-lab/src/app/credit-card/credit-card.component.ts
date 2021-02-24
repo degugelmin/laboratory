@@ -13,11 +13,18 @@ export class CreditCardComponent implements OnInit {
     constructor(private formBuilder: FormBuilder) { }
 
     ngOnInit(): void {
+
         this.creditCardForm = this.formBuilder.group({
-            inputName: ['', Validators.required],
+            inputName: ['', [ Validators.required,
+                                Validators.pattern('^[a-zA-Z ]*$'),
+                                Validators.minLength(5),
+                                Validators.maxLength(40)
+                            ]
+            ],
             inputCardNumber: ['', Validators.required],
             inputExpirationDate: ['', Validators.required],
-            inputCvv: ['', Validators.required]
+            inputCvv: ['', Validators.required],
+        
         });
     }
 

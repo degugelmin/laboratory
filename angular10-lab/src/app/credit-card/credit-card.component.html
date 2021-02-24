@@ -26,6 +26,21 @@
                     text="Card owner's name is required"
                     styleClass="alert alert-danger">
                 </app-message>
+                <app-message
+                    *ngIf="creditCardForm.get('inputName').errors?.minlength"
+                    text="Name is too short"
+                    styleClass="alert alert-danger">
+                </app-message>
+                <app-message
+                    *ngIf="creditCardForm.get('inputName').errors?.maxlength"
+                    text="Name is too long"
+                    styleClass="alert alert-danger">
+                </app-message>
+                <app-message
+                    *ngIf="creditCardForm.get('inputName').errors?.pattern"
+                    text="Name is not valid"
+                    styleClass="alert alert-danger">
+                </app-message>
 
                 <!-- Card number -->
                 <div class="form-group">
