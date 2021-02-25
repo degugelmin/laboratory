@@ -57,6 +57,16 @@
                     text="Card number is required"
                     styleClass="alert alert-danger">
                 </app-message>
+                <app-message
+                    *ngIf="creditCardForm.get('inputCardNumber').errors?.minlength"
+                    text="Card number is too short"
+                    styleClass="alert alert-danger">
+                </app-message>
+                <app-message
+                    *ngIf="creditCardForm.get('inputCardNumber').errors?.maxlength"
+                    text="Card number is too long"
+                    styleClass="alert alert-danger">
+                </app-message>
 
                 <!-- Card expiration date -->
                 <div class="form-row">
@@ -87,6 +97,16 @@
                     <app-message
                         *ngIf="creditCardForm.get('inputCvv').errors?.required && creditCardForm.get('inputCvv').touched"
                         text="CVV is required"
+                        styleClass="alert alert-danger">
+                    </app-message>
+                    <app-message
+                        *ngIf="creditCardForm.get('inputCvv').errors?.minlength"
+                        text="CVV is too short"
+                        styleClass="alert alert-danger">
+                    </app-message>
+                    <app-message
+                        *ngIf="creditCardForm.get('inputCvv').errors?.maxlength"
+                        text="CVV is too long"
                         styleClass="alert alert-danger">
                     </app-message>
                 </div>

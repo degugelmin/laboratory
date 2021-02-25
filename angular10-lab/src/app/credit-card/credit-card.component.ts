@@ -9,21 +9,33 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class CreditCardComponent implements OnInit {
 
     creditCardForm: FormGroup;
+    cardNumber: number;
 
     constructor(private formBuilder: FormBuilder) { }
 
     ngOnInit(): void {
 
         this.creditCardForm = this.formBuilder.group({
-            inputName: ['', [ Validators.required,
-                                Validators.pattern('^[a-zA-Z ]*$'),
-                                Validators.minLength(5),
-                                Validators.maxLength(40)
-                            ]
+            inputName: ['', [ 
+                    Validators.required,
+                    Validators.pattern('^[a-zA-ZÀ-ú ]*$'),
+                    Validators.minLength(5),
+                    Validators.maxLength(40)
+                ]
             ],
-            inputCardNumber: ['', Validators.required],
+            inputCardNumber: ['', [
+                    Validators.required,
+                    Validators.minLength(13),
+                    Validators.maxLength(19)
+                ]
+            ],
             inputExpirationDate: ['', Validators.required],
-            inputCvv: ['', Validators.required],
+            inputCvv: ['', [
+                    Validators.required,
+                    Validators.minLength(3),
+                    Validators.maxLength(4)
+                ]
+            ],
         
         });
     }
@@ -31,9 +43,19 @@ export class CreditCardComponent implements OnInit {
     validateCard() {
         if (this.creditCardForm.valid) {
             console.log('form ok');
+
+            this.validateCreditCardNumber();
         } else {
             this.validateAllFormFields(this.creditCardForm);
         }
+    }
+
+    validateCreditCardNumber() {
+
+        this.cardNumber = this.creditCardForm.get('inputCardNumber').value.replace(/\D/g, '');
+
+        console.log('Credit card number: ' + this.creditCardForm.get('inputCardNumber').value);
+        console.log('card number formatted: ' + this.cardNumber);    
     }
 
     validateAllFormFields(formGroup: FormGroup) {         
